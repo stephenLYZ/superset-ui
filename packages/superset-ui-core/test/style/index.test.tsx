@@ -1,14 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import {
-  styled,
+import styled, {
   supersetTheme,
   SupersetThemeProps,
   useTheme,
   ThemeProvider,
-  EmotionCacheProvider,
-  emotionCache,
-} from '@superset-ui/core';
+} from '@superset-ui/core/src/style';
 
 describe('@superset-ui/style package', () => {
   it('exports a theme', () => {
@@ -34,9 +31,7 @@ describe('@superset-ui/style package', () => {
       }
       mount(<ThemeUser />, {
         wrappingComponent: ({ children }) => (
-          <EmotionCacheProvider value={emotionCache}>
-            <ThemeProvider theme={supersetTheme}>{children}</ThemeProvider>
-          </EmotionCacheProvider>
+          <ThemeProvider theme={supersetTheme}>{children}</ThemeProvider>
         ),
       });
     });

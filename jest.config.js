@@ -58,5 +58,5 @@ module.exports = {
       testEnvironment: 'node',
     },
   ],
-  snapshotSerializers: ['@emotion/jest/enzyme-serializer'],
+  snapshotSerializers: ['@emotion/jest/serializer'],
 };

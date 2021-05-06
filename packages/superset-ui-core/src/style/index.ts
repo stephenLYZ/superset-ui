@@ -16,20 +16,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import emotionStyled from '@emotion/styled';
-import { useTheme as useThemeBasic } from '@emotion/react';
+import emotionStyled, { CreateStyled } from '@emotion/styled';
+import { useTheme as useThemeBasic } from 'emotion-theming';
 import createCache from '@emotion/cache';
 
-export { ThemeProvider, CacheProvider as EmotionCacheProvider, withTheme } from '@emotion/react';
-export { default as createEmotionCache } from '@emotion/cache';
-
-declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends SupersetTheme {}
-}
+export { ThemeProvider, withTheme } from 'emotion-theming';
+export { ClassNames, Global, InterpolationWithTheme, SerializedStyles } from '@emotion/core';
+export { CacheProvider, jsx, css } from '@emotion/react';
+export { createCache };
 
 export function useTheme() {
-  const theme = useThemeBasic();
+  const theme = useThemeBasic<SupersetTheme>();
   // in the case there is no theme, useTheme returns an empty object
   if (Object.keys(theme).length === 0 && theme.constructor === Object) {
     throw new Error(
@@ -38,12 +35,6 @@ export function useTheme() {
   }
   return theme;
 }
-
-export const emotionCache = createCache({
-  key: 'superset',
-});
-
-export const styled = emotionStyled;
 
 const defaultTheme = {
   borderRadius: 4,
@@ -161,4 +152,7 @@ export interface SupersetThemeProps {
   theme: SupersetTheme;
 }
 
+export const styled: CreateStyled<SupersetTheme> = emotionStyled;
 export const supersetTheme = defaultTheme;
+
+export default styled;
