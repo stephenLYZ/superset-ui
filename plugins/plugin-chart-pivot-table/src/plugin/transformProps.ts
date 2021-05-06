@@ -48,14 +48,7 @@ export default function transformProps(chartProps: ChartProps) {
    * function during development with hot reloading, changes won't
    * be seen until restarting the development server.
    */
-  const {
-    width,
-    height,
-    queriesData,
-    formData,
-    hooks: { setDataMask = () => {} },
-    filterState,
-  } = chartProps;
+  const { width, height, queriesData, formData } = chartProps;
   const data = queriesData[0].data as DataRecord[];
   const {
     groupbyRows,
@@ -71,9 +64,7 @@ export default function transformProps(chartProps: ChartProps) {
     colTotals,
     rowTotals,
     valueFormat,
-    emitFilter,
   } = formData;
-  const { selectedFilters } = filterState;
 
   return {
     width,
@@ -92,8 +83,5 @@ export default function transformProps(chartProps: ChartProps) {
     colTotals,
     rowTotals,
     valueFormat,
-    emitFilter,
-    setDataMask,
-    selectedFilters,
   };
 }
