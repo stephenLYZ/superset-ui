@@ -60,6 +60,8 @@ export default function EchartsFunnel({
         },
         filterState: {
           value: groupbyValues.length ? groupbyValues : null,
+        },
+        ownState: {
           selectedValues: values.length ? values : null,
         },
       });
