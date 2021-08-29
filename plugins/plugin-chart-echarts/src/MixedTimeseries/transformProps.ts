@@ -145,7 +145,7 @@ export default function transformProps(
       markerSize,
       areaOpacity: opacity,
       seriesType,
-      stack,
+      stack: Boolean(stack),
       yAxisIndex,
       filterState,
     });
@@ -158,7 +158,7 @@ export default function transformProps(
       markerSize: markerSizeB,
       areaOpacity: opacityB,
       seriesType: seriesTypeB,
-      stack: stackB,
+      stack: Boolean(stackB),
       yAxisIndex: yAxisIndexB,
       filterState,
     });
