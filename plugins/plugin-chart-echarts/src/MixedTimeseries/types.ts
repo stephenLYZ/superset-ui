@@ -32,6 +32,7 @@ import {
   EchartsTimeseriesContributionType,
   EchartsTimeseriesSeriesType,
 } from '../Timeseries/types';
+import { AreaChartExtraControlsValue } from '../constants';
 
 export type EchartsMixedTimeseriesFormData = QueryFormData & {
   annotationLayers: AnnotationLayer[];
@@ -73,8 +74,8 @@ export type EchartsMixedTimeseriesFormData = QueryFormData & {
   rowLimitB: number;
   seriesType: EchartsTimeseriesSeriesType;
   seriesTypeB: EchartsTimeseriesSeriesType;
-  stack: boolean;
-  stackB: boolean;
+  stack: boolean | Partial<AreaChartExtraControlsValue> | null;
+  stackB: boolean | Partial<AreaChartExtraControlsValue> | null;
   yAxisIndex?: number;
   yAxisIndexB?: number;
   groupby: string[];
