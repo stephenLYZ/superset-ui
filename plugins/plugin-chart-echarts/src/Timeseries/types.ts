@@ -25,6 +25,7 @@ import {
 } from '@superset-ui/core';
 import { sections } from '@superset-ui/chart-controls';
 import { DEFAULT_LEGEND_FORM_DATA, EchartsLegendFormData, EChartTransformedProps } from '../types';
+import { AreaChartExtraControlsValue } from '../constants';
 
 export enum EchartsTimeseriesContributionType {
   Row = 'row',
@@ -60,7 +61,7 @@ export type EchartsTimeseriesFormData = QueryFormData & {
   orderDesc: boolean;
   rowLimit: number;
   seriesType: EchartsTimeseriesSeriesType;
-  stack: boolean;
+  stack: boolean | null | Partial<AreaChartExtraControlsValue>;
   tooltipTimeFormat?: string;
   truncateYAxis: boolean;
   yAxisFormat?: string;
@@ -77,6 +78,7 @@ export type EchartsTimeseriesFormData = QueryFormData & {
   groupby: string[];
   showValue: boolean;
   onlyTotal: boolean;
+  extraControls: boolean;
 } & EchartsLegendFormData;
 
 // @ts-ignore

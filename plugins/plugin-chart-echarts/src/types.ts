@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { DataRecordValue, SetDataMaskHook } from '@superset-ui/core';
+import { DataRecordValue, HandlerFunction, SetDataMaskHook } from '@superset-ui/core';
 import { EChartsOption } from 'echarts';
 import { TooltipMarker } from 'echarts/types/src/util/format';
 
@@ -105,6 +105,7 @@ export interface EChartTransformedProps<F> {
   echartOptions: EChartsOption;
   emitFilter: boolean;
   setDataMask: SetDataMaskHook;
+  setControlValue?: HandlerFunction;
   labelMap: Record<string, DataRecordValue[]>;
   groupby: string[];
   selectedValues: Record<number, string>;
