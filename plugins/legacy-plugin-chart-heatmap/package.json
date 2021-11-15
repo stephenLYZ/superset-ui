@@ -31,7 +31,7 @@
     "@superset-ui/chart-controls": "0.18.25",
     "@superset-ui/core": "0.18.25",
     "d3": "^3.5.17",
-    "d3-svg-legend": "^1.x",
+    "d3-svg-legend": "^2.x",
     "d3-tip": "^0.9.1",
     "prop-types": "^15.6.2"
   }
